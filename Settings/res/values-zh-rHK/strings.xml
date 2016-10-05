@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <add-resource type="string" name="v4a"/>
+    <string name="v4a">V4A音效</string>
+</resources>
