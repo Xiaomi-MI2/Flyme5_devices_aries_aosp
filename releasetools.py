@@ -18,7 +18,17 @@ def FlashSUperSU(info):
     info.script.AppendExtra(('run_program("/sbin/busybox", "unzip", "/tmp/supersu/UPDATE-SuperSU.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");'))
     info.script.AppendExtra(('run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/UPDATE-SuperSU.zip");'))
 
+def Data(info):
+    info.script.AppendExtra(('set_metadata("/data/data/com.vipercn.viper4android_v2/shared_prefs/com.vipercn.viper4android_v2.bluetooth.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");'))
+    info.script.AppendExtra(('set_metadata("/data/data/com.vipercn.viper4android_v2/shared_prefs/com.vipercn.viper4android_v2.headset.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");'))
+    info.script.AppendExtra(('set_metadata("/data/data/com.vipercn.viper4android_v2/shared_prefs/com.vipercn.viper4android_v2.settings.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");'))
+    info.script.AppendExtra(('set_metadata("/data/data/com.vipercn.viper4android_v2/shared_prefs/com.vipercn.viper4android_v2.speaker.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");'))
+    info.script.AppendExtra(('set_metadata("/data/data/com.vipercn.viper4android_v2/shared_prefs/com.vipercn.viper4android_v2.usb.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");'))
+
 def FullOTA_InstallEnd(info):
     WritePolicyConfig(info)
     InstallSuperSU(info)
     FlashSUperSU(info)
+    Data(info)
+
+
