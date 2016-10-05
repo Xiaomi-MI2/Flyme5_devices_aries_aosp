@@ -1007,14 +1007,17 @@
     :goto_1
     or-int/2addr v10, v0
 
+    .line 2856
     iget v0, v6, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     iput v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mLastWindowFlags:I
 
+    .line 2858
     if-eqz p1, :cond_0
 
     invoke-static/range {p0 .. p1}, Lcom/android/internal/policy/impl/PhoneWindow$FlymeInjector;->setFlymeStableInsetTop(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/WindowInsets;)V
 
+    .line 2859
     invoke-virtual {p1}, Landroid/view/WindowInsets;->getStableInsetTop()I
 
     move-result v0

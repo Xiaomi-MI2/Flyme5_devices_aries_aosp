@@ -91169,6 +91169,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 18624
     :cond_1
     invoke-virtual/range {p0 .. p9}, Lcom/android/server/am/ActivityManagerService;->startProcessLocked(Ljava/lang/String;Landroid/content/pm/ApplicationInfo;ZILjava/lang/String;Landroid/content/ComponentName;ZZZ)Lcom/android/server/am/ProcessRecord;
 
@@ -91177,6 +91178,7 @@
     :goto_0
     return-object v0
 
+    .line 3400
     :cond_2
     iget-object v0, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
@@ -91192,6 +91194,7 @@
 
     goto :goto_0
 
+    .line 3403
     :cond_3
     const/4 v0, 0x0
 
@@ -91207,7 +91210,6 @@
 
     iget-object v4, p0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 4243
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v5}, Lcom/android/server/wm/WindowManagerService;->getWindowManagerPolicy()Landroid/view/WindowManagerPolicy;

@@ -4289,7 +4289,7 @@
 
     .line 1287
     :pswitch_3
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->launchAssistAction()V
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->startVoiceAssistant()V
 
     goto :goto_0
 
@@ -5534,7 +5534,7 @@
 
     const/4 v9, 0x3
 
-    const/4 v5, 0x1
+    const/4 v5, 0x2
 
     const/4 v6, 0x0
 
@@ -25607,6 +25607,7 @@
 
     const/4 v6, 0x0
 
+    .line 6493
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v7
@@ -25627,10 +25628,12 @@
 
     move v3, v5
 
+    .line 6495
     .local v3, "isAppWindow":Z
     :goto_0
     if-eqz v3, :cond_9
 
+    .line 6497
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getContentFrameLw()Landroid/graphics/Rect;
 
     move-result-object v7
@@ -25641,6 +25644,7 @@
 
     if-eqz v7, :cond_2
 
+    .line 6523
     :cond_0
     :goto_1
     return v6
@@ -25649,8 +25653,10 @@
     :cond_1
     move v3, v6
 
+    .line 6493
     goto :goto_0
 
+    .line 6504
     .restart local v3    # "isAppWindow":Z
     :cond_2
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
@@ -25663,6 +25669,7 @@
 
     if-nez v7, :cond_3
 
+    .line 6505
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getContentFrameLw()Landroid/graphics/Rect;
 
     move-result-object v7
@@ -25683,6 +25690,7 @@
 
     if-ge v7, v8, :cond_0
 
+    .line 6509
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getContentFrameLw()Landroid/graphics/Rect;
 
     move-result-object v7
@@ -25699,6 +25707,7 @@
 
     move v1, v5
 
+    .line 6510
     .local v1, "hasLeftPadding":Z
     :goto_2
     if-eqz v1, :cond_5
@@ -25713,6 +25722,7 @@
 
     move v1, v5
 
+    .line 6511
     :goto_3
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getContentFrameLw()Landroid/graphics/Rect;
 
@@ -25730,6 +25740,7 @@
 
     move v2, v5
 
+    .line 6512
     .local v2, "hasRightPadding":Z
     :goto_4
     if-eqz v2, :cond_7
@@ -25746,6 +25757,7 @@
 
     move v2, v5
 
+    .line 6513
     :goto_5
     invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getContentFrameLw()Landroid/graphics/Rect;
 
@@ -25763,6 +25775,7 @@
 
     move v0, v5
 
+    .line 6515
     .local v0, "hasBottomPadding":Z
     :goto_6
     if-nez v1, :cond_0
@@ -25775,35 +25788,42 @@
     :cond_3
     move v6, v5
 
+    .line 6519
     goto :goto_1
 
     :cond_4
     move v1, v6
 
+    .line 6509
     goto :goto_2
 
     .restart local v1    # "hasLeftPadding":Z
     :cond_5
     move v1, v6
 
+    .line 6510
     goto :goto_3
 
     :cond_6
     move v2, v6
 
+    .line 6511
     goto :goto_4
 
     .restart local v2    # "hasRightPadding":Z
     :cond_7
     move v2, v6
 
+    .line 6512
     goto :goto_5
 
     :cond_8
     move v0, v6
 
+    .line 6513
     goto :goto_6
 
+    .line 6522
     .end local v1    # "hasLeftPadding":Z
     .end local v2    # "hasRightPadding":Z
     :cond_9
@@ -25823,11 +25843,44 @@
     :goto_7
     move v6, v4
 
+    .line 6523
     goto/16 :goto_1
 
     .end local v4    # "isKeyguardWindow":Z
     :cond_a
     move v4, v6
 
+    .line 6522
     goto :goto_7
+.end method
+
+.method private startVoiceAssistant()V
+    .locals 3
+
+    .prologue
+    .line 6766
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    .line 6767
+    .local v0, "intent":Landroid/content/Intent;
+    const-string v1, "com.meizu.voiceassistant"
+
+    const-string v2, "com.meizu.voiceassistant.MainActivity"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 6768
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 6769
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    .line 6770
+    return-void
 .end method
