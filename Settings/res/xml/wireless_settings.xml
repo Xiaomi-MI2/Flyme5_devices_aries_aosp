@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/connectivity_others"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    <com.meizu.common.preference.SwitchPreference android:persistent="false" android:title="@string/airplane_mode" android:key="toggle_airplane" android:disableDependentsState="true" />
-    <PreferenceScreen android:title="@string/tether_settings_title_all" android:key="tether_settings" android:fragment="com.android.settings.TetherSettings" />
-    <PreferenceScreen android:title="@string/vpn_settings_title" android:key="vpn_settings" android:fragment="com.android.settings.vpn2.VpnSettings" />
-    <PreferenceScreen android:title="@string/wifi_display_settings_title" android:key="wifi_display" android:fragment="com.android.settings.wfd.WifiDisplaySettings" settings:keywords="@string/keywords_display_cast_screen" />
-</PreferenceScreen>
