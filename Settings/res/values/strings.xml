@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <add-resource type="string" name="v4a_title"/>
+    <add-resource type="string" name="supersu_title"/>
+    <string name="v4a_title">V4A Sound</string>
+    <string name="supersu_title">SuperSU</string>
+</resources>
