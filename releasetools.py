@@ -11,7 +11,11 @@ def FlashSUperSU(info):
     info.script.AppendExtra(('run_program("/sbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");'))
     info.script.AppendExtra(('run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/supersu.zip");'))
 
+def MountData(info):
+    info.script.AppendExtra(('run_program("/sbin/busybox", "mount", "/data");'))
+
 def FullOTA_InstallEnd(info):
     InstallSuperSU(info)
     FlashSUperSU(info)
+    MountData(info)
 
