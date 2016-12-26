@@ -138,7 +138,7 @@ board_modify_apps := TeleService SystemUI MzCallSetting Settings
 # You should configure the property according to your ID, ie, replace "Unofficial" with your ID.
 override_property += \
     ro.flyme.romer=bywwh \
-    ro.product.model_romer=MI2_bywwh
+    ro.product.model_romer=MI-2_bywwh
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.
@@ -167,14 +167,14 @@ override_property += \
 # Defines whether produces an image zipfile suitable for use with 'fastboot update'.
 # Default: false
 #-----------------------------------------------------------------------------
-#PRODUCE_IMAGES_FOR_FASTBOOT := true
+#PRODUCE_IMAGES_FOR_FASTBOOT := false
 
 ##############################################################################
 # Defines whether generates a block-based OTA, system.img.dat in DAT format will be produced.
 # Will fall back to a file-based OTA if the target_files is older and doesn't support block-based OTAs.
 # Default: false
 #-----------------------------------------------------------------------------
-#PRODUCE_BLOCK_BASED_OTA := true
+PRODUCE_BLOCK_BASED_OTA := false
 
 
 include $(PORT_BUILD)/main.mk
