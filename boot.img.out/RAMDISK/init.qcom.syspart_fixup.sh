@@ -50,14 +50,6 @@ fi
 # timing critical tasks in a separate process to
 # prevent slowdown at boot.
 
-# Device ID
-RAW_ID=`cat /sys/devices/system/soc/soc0/raw_id`
-case "$RAW_ID" in
-     "1812")
-     sed -i 's/\<MI 2\>/MI 2S/g' /system/build.prop     
-     ;;
-esac
-
 # Run modem link script
 if [ -f /system/etc/init.qcom.modem_links.sh ]; then
   /system/bin/sh /system/etc/init.qcom.modem_links.sh
