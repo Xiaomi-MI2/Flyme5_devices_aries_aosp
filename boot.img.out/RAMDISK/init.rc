@@ -157,12 +157,6 @@ on property:sys.boot_from_charger_mode=1
     class_stop charger
     trigger late-init
 
-on property:sys.boot_completed=1
-    start service_v4a
-
-on property:sys.boot_completed=1
-    start service_raw_id
-
 # Load properties from /system/ + /factory after fs mount.
 on load_all_props_action
     load_all_props
@@ -694,16 +688,3 @@ service nmbd /system/bin/nmbd -D
 service flymed /system/bin/flymed
     class main
     socket flymed stream 0660 root system
-
-service service_v4a /system/bin/v4a.sh
-    user root
-    group root
-    disabled
-    oneshot
-
-service service_raw_id /system/bin/raw_id.sh
-    user root
-    group root
-    disabled
-    oneshot
-
