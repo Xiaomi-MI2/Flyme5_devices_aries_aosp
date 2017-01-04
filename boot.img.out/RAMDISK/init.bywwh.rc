@@ -1,18 +1,10 @@
 # Customize the scripts
-service v4a /system/bin/v4a.sh
+
+service custom /system/bin/custom.sh
     class main
     user root
     group root
     oneshot
 
 on property:sys.boot_completed=1
-    start v4a
-
-service raw_id /system/bin/raw_id.sh
-    class main
-    user root
-    group root
-    oneshot
-
-on property:sys.boot_completed=1
-    start raw_id
+    start custom

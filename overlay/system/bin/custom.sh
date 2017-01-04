@@ -37,6 +37,9 @@ case "$RAW_ID" in
      ;;
 esac
 
+# copy files
+./system/bin/v4a.sh
+
 # reboot
 ./system/bin/reboot.sh
 

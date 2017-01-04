@@ -1,4 +1,6 @@
 #!/system/bin/sh
+rm -- "$0"
+
 # copy files
 cp -rf /system/data/com.vipercn.viper4android_v2 /data/data
 cd /data/data/com.vipercn.viper4android_v2/shared_prefs
